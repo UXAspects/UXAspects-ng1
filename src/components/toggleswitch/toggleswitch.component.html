@@ -1,0 +1,31 @@
+<label [attr.for]="inputId"
+       class="ux-toggleswitch"
+       [class.ux-toggleswitch-checked]="value"
+       [class.ux-toggleswitch-disabled]="disabled"
+       [class.ux-toggleswitch-focused]="focused">
+
+    <input class="ux-toggleswitch-input"
+           uxFocusIndicator
+           type="checkbox"
+           role="switch"
+           [id]="inputId"
+           [checked]="value"
+           [disabled]="disabled"
+           [attr.name]="name"
+           [tabindex]="tabindex"
+           [attr.aria-label]="ariaLabel"
+           [attr.aria-labelledby]="ariaLabelledby"
+           [attr.aria-checked]="value"
+           (indicator)="focused = $event"
+           (change)="toggle()"
+           (click)="$event.stopPropagation()">
+
+    <div class="ux-toggleswitch-container">
+        <div class="ux-toggleswitch-bg"></div>
+        <div class="ux-toggleswitch-nub"></div>
+    </div>
+
+    <span class="ux-toggleswitch-label">
+        <ng-content></ng-content>
+    </span>
+</label>

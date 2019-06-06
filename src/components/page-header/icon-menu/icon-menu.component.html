@@ -1,0 +1,55 @@
+<div class="page-header-icon-menu"
+    dropdown
+    placement="bottom right"
+    [(isOpen)]="isOpen">
+
+    <a role="button"
+        uxFocusIndicator
+        class="page-header-icon-menu-button"
+        [attr.aria-label]="menu.label"
+        aria-haspopup="true"
+        tabindex="0"
+        (click)="select(menu)"
+        dropdownToggle
+        uxMenuNavigationToggle
+        #menuNavigationToggle="uxMenuNavigationToggle"
+        [(menuOpen)]="isOpen">
+
+        <i class="hpe-icon" [ngClass]="menu.icon"></i>
+        <span class="label label-primary" *ngIf="menu?.badge" aria-hidden="true">{{ menu.badge }}</span>
+
+    </a>
+
+    <ul *dropdownMenu
+        class="dropdown-menu"
+        role="menu"
+        uxMenuNavigation
+        [toggleButton]="menuNavigationToggle">
+
+        <li *ngFor="let dropdown of menu?.dropdown"
+            role="none"
+            [class.dropdown-header]="dropdown.header"
+            [class.dropdown-divider]="dropdown.divider">
+
+            <span class="font-bold" *ngIf="dropdown.header">{{ dropdown.title }}</span>
+
+            <a *ngIf="!dropdown.header"
+                role="menuitem"
+                class="dropdown-item"
+                tabindex="-1"
+                (click)="select(dropdown)"
+                (keydown)="keydownHandler(dropdown, $event)"
+                uxMenuNavigationItem>
+
+
+                <span class="dropdown-item-title">
+                    <i class="hpe-icon hpe-fw" [ngClass]="dropdown.icon"></i>
+                    {{ dropdown.title }}
+                </span>
+                <span *ngIf="dropdown.subtitle" class="dropdown-item-subtitle">{{ dropdown.subtitle }}</span>
+
+            </a>
+        </li>
+
+    </ul>
+</div>

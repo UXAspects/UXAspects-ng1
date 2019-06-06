@@ -1,0 +1,68 @@
+ux-select {
+    ux-tag-input {
+        font-size: 1.125rem;
+
+        ux-typeahead {
+            font-size: 1rem;
+        }
+    }
+
+    ux-typeahead .ux-typeahead-options > ol > li {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+
+    .inner-addon {
+        > input[readonly]:not(:disabled) {
+            background-color: @form-control-bg;
+            color: @form-control-color;
+            border-color: @form-control-border;
+            .placeholder(@form-control-placeholder-color);
+
+            &:focus {
+                border-color: @form-control-focus-border;
+                .placeholder(@form-control-placeholder-color);
+            }
+        }
+    }
+
+    .right-addon {
+        .select-arrow {
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        &.disabled {
+            .select-arrow {
+                cursor: default;
+            }
+        }
+    }
+}
+
+ux-select,
+ux-combobox,
+ux-dropdown {
+    .ux-select-icon {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
+
+    .ux-select-icon > .hpe-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 16px;
+        height: 16px;
+    }
+
+    &.ux-select-disabled {
+        .ux-select-icon > .hpe-icon {
+            cursor: default;
+        }
+    }
+}

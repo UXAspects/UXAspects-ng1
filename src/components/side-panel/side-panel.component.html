@@ -1,0 +1,16 @@
+<div *ngIf="modal && open" class="modal-backdrop"
+    [style.position]="position"
+    [style.top]="cssTop"></div>
+
+<div class="ux-side-panel-host"
+    [class.modal-panel]="modal"
+    [style.position]="position"
+    [style.width]="hostWidth"
+    [style.top]="cssTop"
+    [tabindex]="open ? 0 : -1"
+    [@panelState]="animationPanelState"
+    [focusIf]="open && focusOnShow"
+    [focusIfScroll]="false"
+    [cdkTrapFocus]="open && modal">
+    <ng-content></ng-content>
+</div>

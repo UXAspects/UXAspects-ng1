@@ -1,0 +1,21 @@
+{
+    "columns": [{
+        "title": "About",
+        "links": [{
+            "title": "Currently v{{VERSION}}",
+            "link": "/landing"
+        }, {
+            "title": "View Changes Log",
+            "link": "/changelog"
+        }]
+    }],
+    "logo": {
+        "image": "assets/img/UX-graphic-small.png",
+        "title": "UX Aspects"
+    },
+    "copyright": "EntIT Software LLC, a Micro Focus company",
+    "feedback": {
+        "title": "Feedback",
+        "link": "http://github.com"
+    }
+}

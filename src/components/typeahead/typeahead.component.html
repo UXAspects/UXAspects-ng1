@@ -1,0 +1,61 @@
+<div class="ux-typeahead-options"
+    [uxInfiniteScroll]="loadOptionsCallback"
+    [collection]="visibleOptions$ | async"
+    (collectionChange)="visibleOptions$.next($event)"
+    [enabled]="hasBeenOpened && isInfiniteScroll()"
+    [filter]="filter"
+    [loadOnScroll]="true"
+    [pageSize]="pageSize"
+    [scrollElement]="typeaheadElement"
+    (loading)="loading = true"
+    (loaded)="loading = false">
+
+    <ol *ngIf="(visibleOptions$ | async).length > 0">
+        <li *ngFor="let option of (visibleOptions$ | async); let i = index"
+            [attr.id]="id + '-option-' + i"
+            [class.disabled]="isDisabled(option)"
+            [class.highlighted]="highlightedKey === option.key"
+            [class.active]="activeKey === option.key"
+            [attr.aria-selected]="multiselectable ? isDisabled(option) : (activeKey === option.key ? true : null)"
+            [uxTypeaheadHighlight]="highlightedKey === option.key"
+            [uxScrollIntoViewIf]="highlightedKey === option.key"
+            [scrollParent]="typeaheadElement.nativeElement"
+            (mousedown)="optionMousedownHandler($event)"
+            (click)="optionClickHandler($event, option)"
+            (mouseover)="highlight(option)">
+
+            <ng-container [ngTemplateOutlet]="optionTemplate || defaultOptionTemplate"
+                [ngTemplateOutletContext]="{option: option.value, api: optionApi}">
+            </ng-container>
+
+        </li>
+    </ol>
+
+    <div *uxInfiniteScrollLoading>
+        <ng-container [ngTemplateOutlet]="loadingTemplate || defaultLoadingTemplate"></ng-container>
+    </div>
+
+    <div *ngIf="isInfiniteScroll() === false && (visibleOptions$ | async).length === 0 && loading">
+        <ng-container [ngTemplateOutlet]="loadingTemplate || defaultLoadingTemplate"></ng-container>
+    </div>
+
+</div>
+<div *ngIf="(visibleOptions$ | async).length === 0 && !loading">
+    <ng-container [ngTemplateOutlet]="noOptionsTemplate || defaultNoOptionsTemplate">
+    </ng-container>
+</div>
+
+<ng-template #defaultLoadingTemplate>
+    <div class="ux-typeahead-loading">
+        <div class="spinner spinner-accent spinner-bounce-middle"></div>
+        <div>Loading...</div>
+    </div>
+</ng-template>
+
+<ng-template #defaultOptionTemplate let-option="option" let-api="api">
+    <span class="ux-typeahead-option" [innerHtml]="api.getDisplayHtml(option)"></span>
+</ng-template>
+
+<ng-template #defaultNoOptionsTemplate>
+    <span class="ux-typeahead-no-options">No results</span>
+</ng-template>
