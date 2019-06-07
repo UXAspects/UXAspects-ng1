@@ -11,8 +11,8 @@ import { environment } from './environments/environment';
 require('zone.js/dist/zone');
 
 if (!environment.production) {
-  Error['stackTraceLimit'] = Infinity;
-  require('zone.js/dist/long-stack-trace-zone');
+    Error['stackTraceLimit'] = Infinity;
+    require('zone.js/dist/long-stack-trace-zone');
 }
 
 // create the AngularJS module

@@ -12,10 +12,10 @@
     "declaration": false,
     "suppressImplicitAnyIndexErrors": true,
     "paths": {
-      "@ux-aspects/ux-aspects/*": [
+      "@ux-aspects/ux-aspects-ng1/*": [
         "./src"
       ],
-      "@ux-aspects/ux-aspects": [
+      "@ux-aspects/ux-aspects-ng1": [
         "./src"
       ]
     }

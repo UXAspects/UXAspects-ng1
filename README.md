@@ -1,4 +1,4 @@
-# UX Aspects
+# UX Aspects (AngularJS)
 
 UX Aspects is an open source user interface framework for building modern, responsive, mobile big data applications on the web.
 

@@ -1,6 +1,6 @@
 const { join } = require('path');
-const { IgnorePlugin } = require('webpack');
 const { cwd } = require('process');
+const { IgnorePlugin } = require('webpack');
 
 module.exports = {
 
@@ -11,7 +11,7 @@ module.exports = {
     },
 
     output: {
-        path: join(cwd(), 'dist', 'docs', 'assets', 'ng1'),
+        path: join(cwd(), 'dist', 'library', 'ng1'),
         filename: '[name].js',
         libraryTarget: 'umd'
     },

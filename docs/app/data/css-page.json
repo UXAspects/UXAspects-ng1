@@ -27,13 +27,11 @@
                 },
                 {
                     "title": "Button Dropdowns",
-                    "component": "CssButtonDropdownsComponent",
-                    "deprecated": true
+                    "component": "CssButtonDropdownsComponent"
                 },
                 {
                     "title": "Split Button Dropdowns",
-                    "component": "CssSplitButtonDropdownsComponent",
-                    "deprecated": true
+                    "component": "CssSplitButtonDropdownsComponent"
                 }
             ]
         },
@@ -343,9 +341,7 @@
                 {
                     "title": "Float Labels",
                     "component": "CssFloatLabelsComponent",
-                    "version": "AngularJS",
-                    "deprecated": true,
-                    "deprecatedFor": "ComponentsFloatLabelComponent"
+                    "version": "AngularJS"
                 },
                 {
                     "title": "Button Addons",

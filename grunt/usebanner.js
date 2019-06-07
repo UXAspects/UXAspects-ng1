@@ -1,7 +1,7 @@
-const path = require('path');
-const fs = require('fs');
+const { join } = require('path');
+const { cwd } = require('process');
 
-const package = require(path.join(process.cwd(), 'package.json'));
+const package = require(join(cwd(), 'package.json'));
 
 module.exports = {
 
@@ -13,12 +13,10 @@ module.exports = {
         },
         files: {
             src: [
-                path.join(process.cwd(), 'dist', 'ng1', 'ux-aspects-ng1.js'),
-                path.join(process.cwd(), 'dist', 'ng1', 'ux-aspects-ng1.min.js'),
-                path.join(process.cwd(), 'dist', 'styles', 'ux-aspects.css'),
-                path.join(process.cwd(), 'dist', 'styles', 'ux-aspects.min.css'),             
-                path.join(process.cwd(), 'dist', 'lib', 'ux-aspects.js'),             
-                path.join(process.cwd(), 'dist', 'lib', 'ux-aspects.min.js')
+                join(cwd(), 'dist', 'library', 'ng1', 'ux-aspects-ng1.js'),
+                join(cwd(), 'dist', 'library', 'ng1', 'ux-aspects-ng1.min.js'),
+                join(cwd(), 'dist', 'library', 'styles', 'ux-aspects.css'),
+                join(cwd(), 'dist', 'library', 'styles', 'ux-aspects.min.css'),
             ]
         }
     }

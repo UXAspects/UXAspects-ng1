@@ -1,4 +1,4 @@
-// import dependencies 
+// import dependencies
 const path = require('path');
 const fs = require('fs');
 const glob = require("glob");
@@ -13,14 +13,14 @@ const fontPath = path.join(process.cwd(), 'src', 'fonts');
 // Add an extension so we can specify a webpack loader
 const assetsLicensePath = path.join(process.cwd(), 'docs', 'app', 'assets', 'licenses.txt');
 
-const outputPath = path.join(process.cwd(), 'dist', 'Licenses');
+const outputPath = path.join(process.cwd(), 'dist', 'library', '3rd-party-licenses.txt');
 
 // wait for all licenses to be retrieved
 let pluginPromise = extractLicenses(pluginPath, '.js');
 let externalPromise = extractLicenses(externalPath, '.js');
 let fontsPromise = extractLicenses(fontPath, '.txt');
 
-Promise.all([pluginPromise, externalPromise, fontsPromise]).then(values => { 
+Promise.all([pluginPromise, externalPromise, fontsPromise]).then(values => {
 
     let licenses = [];
 
@@ -62,7 +62,7 @@ function extractLicenses(directory, extension) {
 
                     // if there is no license dont push anything
                     if (header.length !== 0) {
-                        licenses.push(header);
+                        licenses.push(file + ':\n\n' + header);
                     }
 
                     // check if this is the last file
@@ -79,7 +79,7 @@ function extractLicenses(directory, extension) {
 
 
 function createLicenseFile(licenses) {
-    var separator = '\r\n-----------------------------------------------------------------------------------\r\n';
+    var separator = '\n\n-----------------------------------------------------------------------------------\n\n';
     var output = 'UX ASPECTS OPEN SOURCE LICENSES' + separator + licenses.join(separator);
     fs.writeFileSync(outputPath, output);
     fs.writeFileSync(assetsLicensePath, output);

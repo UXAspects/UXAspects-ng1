@@ -12,12 +12,6 @@ There are two approaches to writing unit tests for the AngularJS components of U
 
 The second method is to instantiate the component's controller directly. This can be achieved by again creating a custom scope with the variables to be bound by the component, and then using the Angular `$controller` service to instantiate the controller with the provided scope. Instead of sending clicks or keypresses, the controller methods are invoked directly, and changes to the bindings and controller state are verified.
 
-### Angular 2
-
-Tests for Angular 2 components will use the `TestBed` API to create an instance of the component. Within a test, the `ngOnInit()` function is called to initialize the component. After this, the component's functions and properties can be tested as normal.
-
-See also [Testing Components in Angular 2 with Jasmine](https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine).
-
 ### Guidelines
 
 Tests are broken up into logical groups using the `describe` function. The advantage of this is that different preconditions can be set up in the `beforeEach` function for each `describe` group. This is preferable to setting up new data within the function itself.

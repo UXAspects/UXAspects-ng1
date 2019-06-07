@@ -3,7 +3,7 @@ const process = require('process');
 
 module.exports = {
     ng1: {
-        src: path.join(process.cwd(), 'dist', 'ng1', 'ux-aspects-ng1.js'),
+        src: path.join(process.cwd(), 'dist', 'library', 'ng1', 'ux-aspects-ng1.js'),
         options: {
             specs: path.join(process.cwd(), 'src', 'ng1', '**', '*.spec.js'),
             polyfills: [

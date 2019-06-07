@@ -89,9 +89,7 @@ module.exports = {
             {
                 test: /\.less$/,
                 exclude: [
-                    join(cwd(), 'docs', 'app'),
-                    join(cwd(), 'src', 'components'),
-                    join(cwd(), 'src', 'services')
+                    join(cwd(), 'docs', 'app')
                 ],
                 use: ['style-loader', CssLoaderWithSourceMap, LessLoaderWithSourceMap]
             },
@@ -186,7 +184,7 @@ module.exports = {
 
         new ScriptsWebpackPlugin({
             name: 'scripts',
-            sourceMap: false,
+            sourceMap: true,
             filename: `scripts.js`,
             scripts: [
                 join('node_modules', 'jquery', 'dist', 'jquery.js'),

@@ -104,9 +104,7 @@ module.exports = {
             {
                 test: /\.less$/,
                 exclude: [
-                    join(cwd(), 'docs', 'app'),
-                    join(cwd(), 'src', 'components'),
-                    join(cwd(), 'src', 'services')
+                    join(cwd(), 'docs', 'app')
                 ],
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
             },
@@ -249,7 +247,7 @@ module.exports = {
                 to: join(cwd(), 'dist', 'docs', 'favicon.ico')
             },
             {
-                from: join(cwd(), 'dist', 'bundles', 'ux-aspects-ux-aspects.umd.js'),
+                from: join(cwd(), 'dist', 'library', 'bundles', 'ux-aspects-ux-aspects-ng1.umd.js'),
                 to: join(cwd(), 'dist', 'docs', 'assets', 'lib', 'index.js')
             },
             {
