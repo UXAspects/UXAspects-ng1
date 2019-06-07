@@ -127,22 +127,6 @@
                             </arguments>
                         </configuration>
                     </execution>
-
-                    <!-- Stage for release -->
-                    <execution>
-                        <id>exec-npm-run-package-release</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>npm</executable>
-                            <arguments>
-                                <argument>run</argument>
-                                <argument>package:release</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>
