@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     grunt.registerTask('lint', ['tslint:documentation', 'jshint:ng1', 'stylelint']);
     grunt.registerTask('library', ['clean:library', 'execute:ngpackagr', 'execute:webpack_library']);
     grunt.registerTask('styles', ['clean:styles', 'execute:less']);
-    grunt.registerTask('assets', ['copy:fonts', 'copy:images', 'copy:ng1', 'copy:styles', 'copy:md']);
+    grunt.registerTask('assets', ['copy:fonts', 'copy:images', 'copy:css', 'copy:ng1', 'copy:md']);
     grunt.registerTask('assets:library', ['copy:fonts', 'copy:images', 'copy:md']);
     grunt.registerTask('iconset', ['execute:iconset', 'webfont:iconset']);
     grunt.registerTask('minify', ['uglify:ng1', 'cssmin:styles']);
