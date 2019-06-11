@@ -58,11 +58,14 @@ function extractLicenses(directory, extension) {
                     var start = data.indexOf('LICENSE-START');
                     var end = data.indexOf('LICENSE-END');
 
-                    var header = data.substr(start, (end - start)).replace(startToken, '').replace(endToken, '').trim();
+                    var header = data.substr(start, (end - start)).replace(startToken, '').replace(endToken, '');
 
                     // if there is no license dont push anything
                     if (header.length !== 0) {
-                        licenses.push(file + ':\n\n' + header);
+                        licenses.push({
+                            file: filePath,
+                            content: header
+                        });
                     }
 
                     // check if this is the last file
@@ -77,10 +80,17 @@ function extractLicenses(directory, extension) {
     return promise;
 }
 
-
 function createLicenseFile(licenses) {
     var separator = '\n\n-----------------------------------------------------------------------------------\n\n';
-    var output = 'UX ASPECTS OPEN SOURCE LICENSES' + separator + licenses.join(separator);
+    var output = 'UX ASPECTS (ANGULARJS) OPEN SOURCE LICENSES' + separator + licenses.sort(licenseComparator).map(format).join(separator) + '\n';
     fs.writeFileSync(outputPath, output);
     fs.writeFileSync(assetsLicensePath, output);
+}
+
+function licenseComparator(a, b) {
+    return a.file.localeCompare(b.file);
+}
+
+function format(license) {
+    return `${path.basename(license.file)}:\n\n${license.content}`;
 }

@@ -35,7 +35,7 @@ To build the project, which includes UX Aspects and the documentation site:
 
 1. Clone the respository:
 ```bash
-git clone https://github.com/UXAspects/UXAspects.git
+git clone https://github.com/UXAspects-ng1/UXAspects-ng1.git
 ```
 2. Install the dependencies using `npm` in the repository directory:
 ```bash

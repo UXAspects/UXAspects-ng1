@@ -16,9 +16,6 @@ module.exports = {
     less: {
         src: [join(scripts, 'inline-less.js')]
     },
-    dist_manifest: {
-        src: [join(scripts, 'dist-manifest.js')]
-    },
     ngpackagr: {
         src: [ngPackagr],
         options: {
