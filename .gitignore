@@ -3,7 +3,6 @@ node_modules/
 _SpecRunner.html
 jshint.log
 .awcache/
-docs/app/assets/licenses.txt
 src/fonts/hpe-icons.eot
 src/fonts/hpe-icons.ttf
 src/fonts/hpe-icons.woff
@@ -11,11 +10,6 @@ src/fonts/hpe-icons.svg
 src/styles/hpe-icons.less
 dist/
 .tscache/
-e2e/_test-output/
-e2e/coverage/
-e2e/dist/
-e2e/html/
-e2e/xml/
 .ng_build/
 .ng_pkg_build/
 target/

@@ -33,10 +33,10 @@ module.exports = function(grunt) {
         'library',
         'iconset',
         'styles',
+        'licenses',
         'build:documentation',
         'minify',
-        'assets',
-        'licenses'
+        'assets'
     ]);
 
     // package: compress the dist output for all targets into the `target` directory.

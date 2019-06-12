@@ -12,6 +12,7 @@ const fontPath = path.join(process.cwd(), 'src', 'fonts');
 
 // Add an extension so we can specify a webpack loader
 const assetsLicensePath = path.join(process.cwd(), 'docs', 'app', 'assets', 'licenses.txt');
+const dataLicensePath = path.join(process.cwd(), 'docs', 'app', 'data', 'licenses.json');
 
 const outputPath = path.join(process.cwd(), 'dist', 'library', '3rd-party-licenses.txt');
 
@@ -28,7 +29,7 @@ Promise.all([pluginPromise, externalPromise, fontsPromise]).then(values => {
     values.forEach(licenseSet => licenses = licenses.concat(licenseSet));
 
     // create license files
-    createLicenseFile(licenses);
+    createLicenseFile(licenses.sort(licenseComparator));
 });
 
 function extractLicenses(directory, extension) {
@@ -63,7 +64,8 @@ function extractLicenses(directory, extension) {
                     // if there is no license dont push anything
                     if (header.length !== 0) {
                         licenses.push({
-                            file: filePath,
+                            path: path.relative(process.cwd(), filePath),
+                            fileName: path.basename(filePath),
                             content: header
                         });
                     }
@@ -82,15 +84,16 @@ function extractLicenses(directory, extension) {
 
 function createLicenseFile(licenses) {
     var separator = '\n\n-----------------------------------------------------------------------------------\n\n';
-    var output = 'UX ASPECTS (ANGULARJS) OPEN SOURCE LICENSES' + separator + licenses.sort(licenseComparator).map(format).join(separator) + '\n';
+    var output = 'UX ASPECTS (ANGULARJS) OPEN SOURCE LICENSES' + separator + licenses.map(format).join(separator) + '\n';
     fs.writeFileSync(outputPath, output);
     fs.writeFileSync(assetsLicensePath, output);
+    fs.writeFileSync(dataLicensePath, JSON.stringify(licenses, null, 4), 'utf8');
 }
 
 function licenseComparator(a, b) {
-    return a.file.localeCompare(b.file);
+    return a.path.localeCompare(b.path);
 }
 
 function format(license) {
-    return `${path.basename(license.file)}:\n\n${license.content}`;
+    return `${license.fileName}:\n\n${license.content}`;
 }

@@ -2,9 +2,19 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'uxd-licenses-page',
-    templateUrl: './licenses.component.html'
+    templateUrl: './licenses.component.html',
+    styleUrls: ['./licenses.component.less']
 })
-
 export class LicensesPageComponent implements OnInit {
-    ngOnInit() { }
+
+    externalLicenses: ExternalLicenseInfo[];
+
+    ngOnInit() {
+        this.externalLicenses = require('../../data/licenses.json');
+    }
+}
+
+interface ExternalLicenseInfo {
+    fileName: string;
+    content: string;
 }

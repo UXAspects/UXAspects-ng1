@@ -1,6 +1,8 @@
 <uxd-page-header header="Licenses"></uxd-page-header>
 <uxd-text-page-layout>
 
+    <h2>UX Aspects (AngularJS)</h2>
+
     <p class="text-center">Apache License</p>
     <p class="text-center">Version 2.0, January 2004</p>
     <p class="text-center m-b-lg"><a href="http://www.apache.org/licenses">http://www.apache.org/licenses</a></p>
@@ -155,5 +157,18 @@
         </li>
     </ol>
 
-    <p class="text-right">For third party plugin licenses refer to <a href="assets/licenses.txt">Licenses</a></p>
+    <h2>3rd Party Licenses</h2>
+
+    <p>The following licenses apply to content included with UX Aspects (AngularJS).</p>
+
+    <section *ngFor="let license of externalLicenses">
+
+        <h3>{{license.fileName}}</h3>
+
+        <pre class="license-content">
+            {{license.content}}
+        </pre>
+
+    </section>
+
 </uxd-text-page-layout>
