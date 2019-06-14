@@ -6,12 +6,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ChartsSparkChartNg1Component } from './spark-chart-ng1/spark-chart-ng1.component';
-import { ChartsSparkChartsComponent } from './spark-charts/spark-charts.component';
 
 
 const SECTIONS = [
     ChartsSparkChartNg1Component,
-    ChartsSparkChartsComponent
 ];
 
 const ROUTES = [

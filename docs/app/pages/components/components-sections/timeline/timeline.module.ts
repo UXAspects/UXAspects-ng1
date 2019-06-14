@@ -7,12 +7,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsTimelineNg1Component } from './timeline-ng1/timeline-ng1.component';
-import { ComponentsTimelineComponent } from './timeline/timeline.component';
 
 
 const SECTIONS = [
     ComponentsTimelineNg1Component,
-    ComponentsTimelineComponent
 ];
 
 const ROUTES = [

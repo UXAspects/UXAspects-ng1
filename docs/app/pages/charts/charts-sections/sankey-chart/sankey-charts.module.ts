@@ -6,12 +6,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ChartsSankeyChartNg1Component } from './sankey-chart-ng1/sankey-chart-ng1.component';
-import { ChartsSankeyChartComponent } from './sankey-chart/sankey-chart.component';
 
 
 const SECTIONS = [
     ChartsSankeyChartNg1Component,
-    ChartsSankeyChartComponent
 ];
 
 const ROUTES = [

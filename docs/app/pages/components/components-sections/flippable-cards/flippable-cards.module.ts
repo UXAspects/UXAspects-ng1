@@ -8,12 +8,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsFlippableCardsNg1Component } from './flippable-cards-ng1/flippable-cards-ng1.component';
-import { ComponentsFlippableCardsComponent } from './flippable-cards/flippable-cards.component';
 
 
 const SECTIONS = [
     ComponentsFlippableCardsNg1Component,
-    ComponentsFlippableCardsComponent
 ];
 
 const ROUTES = [

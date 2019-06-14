@@ -8,12 +8,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ChartsOrganizationChartNg1Component } from './organization-chart-ng1/organization-chart-ng1.component';
-import { ChartsOrganizationChartComponent } from './organization-chart/organization-chart.component';
 
 
 const SECTIONS = [
     ChartsOrganizationChartNg1Component,
-    ChartsOrganizationChartComponent
 ];
 
 const ROUTES = [

@@ -6,11 +6,9 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsPopoverNg1Component } from './popover-ng1/popover-ng1.component';
-import { ComponentsPopoverComponent } from './popover/popover.component';
 
 const SECTIONS = [
     ComponentsPopoverNg1Component,
-    ComponentsPopoverComponent
 ];
 
 const ROUTES = [

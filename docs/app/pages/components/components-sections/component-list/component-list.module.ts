@@ -8,12 +8,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsComponentListNg1Component } from './component-list-ng1/component-list-ng1.component';
-import { ComponentsComponentListComponent } from './component-list/component-list.component';
 
 
 const SECTIONS = [
     ComponentsComponentListNg1Component,
-    ComponentsComponentListComponent
 ];
 
 const ROUTES = [

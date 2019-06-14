@@ -7,11 +7,9 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsHierarchyBarNg1Component } from './hierarchy-bar-ng1/hierarchy-bar-ng1.component';
-import { ComponentsHierarchyBarComponent } from './hierarchy-bar/hierarchy-bar.component';
 
 
 const SECTIONS = [
-    ComponentsHierarchyBarComponent,
     ComponentsHierarchyBarNg1Component
 ];
 

@@ -9,20 +9,14 @@ import { DocumentationPage, ResolverService } from '../../../../services/resolve
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsDatePickerNg1Component } from './date-picker-ng1/date-picker-ng1.component';
 import { ComponentsDateRangePickerNg1Component } from './date-range-picker-ng1/date-range-picker-ng1.component';
-import { ComponentsDateRangePickerComponent } from './date-range-picker/date-range-picker.component';
-import { ComponentsDateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { ComponentsIntegratedDatePickerNg1Component } from './integrated-date-picker-ng1/integrated-date-picker-ng1.component';
 import { ComponentsTimePickerNg1Component } from './time-picker-ng1/time-picker-ng1.component';
-import { ComponentsTimePickerComponent } from './time-picker/time-picker.component';
 
 const SECTIONS = [
     ComponentsDatePickerNg1Component,
     ComponentsDateRangePickerNg1Component,
-    ComponentsDateTimePickerComponent,
     ComponentsIntegratedDatePickerNg1Component,
-    ComponentsTimePickerComponent,
     ComponentsTimePickerNg1Component,
-    ComponentsDateRangePickerComponent
 ];
 
 const ROUTES = [

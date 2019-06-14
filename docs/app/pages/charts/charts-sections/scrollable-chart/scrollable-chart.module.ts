@@ -8,12 +8,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ChartsScrollableChartNg1Component } from './scrollable-chart-ng1/scrollable-chart-ng1.component';
-import { ChartsScrollableChartComponent } from './scrollable-chart/scrollable-chart.component';
 
 
 const SECTIONS = [
     ChartsScrollableChartNg1Component,
-    ChartsScrollableChartComponent
 ];
 
 const ROUTES = [

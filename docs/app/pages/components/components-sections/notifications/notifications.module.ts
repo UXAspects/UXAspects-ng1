@@ -10,17 +10,13 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsAlertStylesNg1Component } from './alert-styles-ng1/alert-styles-ng1.component';
-import { ComponentsAlertComponent } from './alert/alert.component';
 import { ComponentsDismissableStylesNg1Component } from './dismissable-styles-ng1/dismissable-styles-ng1.component';
 import { ComponentsNotificationDropdownNg1Component } from './notification-dropdown-ng1/notification-dropdown-ng1.component';
 import { ComponentsNotificationListNg1Component } from './notification-list-ng1/notification-list-ng1.component';
 import { ComponentsNotificationsNg1Component } from './notifications-ng1/notifications-ng1.component';
-import { ComponentsNotificationsComponent } from './notifications/notifications.component';
 
 
 const SECTIONS = [
-    ComponentsAlertComponent,
-    ComponentsNotificationsComponent,
     ComponentsNotificationsNg1Component,
     ComponentsNotificationListNg1Component,
     ComponentsNotificationDropdownNg1Component,

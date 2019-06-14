@@ -7,12 +7,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsHotkeysNg1Component } from './hotkeys-ng1/hotkeys-ng1.component';
-import { ComponentsHotkeysComponent } from './hotkeys/hotkeys.component';
 import { ComponentsKeyboardServiceNg1Component } from './keyboard-service-ng1/keyboard-service-ng1.component';
 
 
 const SECTIONS = [
-    ComponentsHotkeysComponent,
     ComponentsHotkeysNg1Component,
     ComponentsKeyboardServiceNg1Component
 ];

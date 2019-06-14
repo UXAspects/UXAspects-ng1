@@ -10,26 +10,17 @@ import { DocumentationComponentsModule } from '../../../../components/components
 import { DocumentationCategoryComponent } from '../../../../components/documentation-category/documentation-category.component';
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
-import { ComponentsColumnPickerComponent } from './column-picker/column-picker.component';
-import { ComponentsColumnResizingComponent } from './column-resizing/column-resizing.component';
-import { ComponentsColumnSortingComponent } from './column-sorting/column-sorting.component';
 import { ComponentsColumnVisibilityNg1Component } from './column-visibility-ng1/column-visibility-ng1.component';
-import { ComponentsCustomFiltersComponent } from './custom-filters-component/custom-filters.component';
-import { SampleFilterCustomComponent } from './custom-filters-component/sample/sample-filter.component';
 import { ComponentsCustomResponsiveTableNg1Component } from './custom-responsive-table-ng1/custom-responsive-table-ng1.component';
 import { ComponentsDetailRowHeaderNg1Component } from './detail-row-header-ng1/detail-row-header-ng1.component';
 import { ComponentsDetailRowResponsiveNg1Component } from './detail-row-responsive-ng1/detail-row-responsive-ng1.component';
 import { ComponentsDynamicFiltersNg1Component } from './dynamic-filters-ng1/dynamic-filters-ng1.component';
 import { ComponentsFiltersNg1Component } from './filters-ng1/filters-ng1.component';
-import { ComponentsFiltersComponent } from './filters/filters.component';
 import { ComponentsFixedHeaderTableNg1Component } from './fixed-header-table-ng1/fixed-header-table-ng1.component';
-import { ComponentsFixedHeaderTableComponent } from './fixed-header-table/fixed-header-table.component';
 import { ComponentsGroupingNg1Component } from './grouping-ng1/grouping-ng1.component';
 import { ComponentsHoverActionsNg1Component } from './hover-actions-ng1/hover-actions-ng1.component';
-import { ComponentsHoverActionsComponent } from './hover-actions/hover-actions.component';
 import { ComponentsIndicesNg1Component } from './indices-ng1/indices-ng1.component';
 import { ComponentsLayoutSwitchingNg1Component } from './layout-switching-ng1/layout-switching-ng1.component';
-import { ComponentsLayoutSwitchingComponent } from './layout-switching/layout-switching.component';
 import { ComponentsListHoverActionsNg1Component } from './list-hover-actions-ng1/list-hover-actions-ng1.component';
 import { ComponentsMultipleColumnSortingNg1Component } from './multiple-column-sorting-ng1/multiple-column-sorting-ng1.component';
 import { ComponentsMultipleSelectActionsNg1Component } from './multiple-select-actions-ng1/multiple-select-actions-ng1.component';
@@ -37,23 +28,16 @@ import { ComponentsMultipleSelectionRowNg1Component } from './multiple-selection
 import { ComponentsPreviewPaneNg1Component } from './preview-pane-ng1/preview-pane-ng1.component';
 import { ComponentsPreviewPaneWindowNg1Component } from './preview-pane-window-ng1/preview-pane-window-ng1.component';
 import { ComponentsReorderableTableNg1Component } from './reorderable-table-ng1/reorderable-table-ng1.component';
-import { ComponentsReorderableTableComponent } from './reorderable-table/reorderable-table.component';
 import { ComponentsScrollableTableNg1Component } from './scrollable-table-ng1/scrollable-table-ng1.component';
-import { ComponentsSelectionComponent } from './selection/selection.component';
 import { ComponentsSingleColumnSortingNg1Component } from './single-column-sorting-ng1/single-column-sorting-ng1.component';
 import { ComponentsSortDirectionToggleNg1Component } from './sort-direction-toggle-ng1/sort-direction-toggle-ng1.component';
 import { ComponentsSortingNg1Component } from './sorting-ng1/sorting-ng1.component';
-import { ComponentsSortingComponent } from './sorting/sorting.component';
 import { ComponentsTraditionalMultipleSelectActionsNg1Component } from './traditional-multiple-select-actions-ng1/traditional-multiple-select-actions-ng1.component';
 
 
-
 const SECTIONS = [
-    ComponentsColumnSortingComponent,
     ComponentsDetailRowResponsiveNg1Component,
     ComponentsDetailRowHeaderNg1Component,
-    ComponentsFiltersComponent,
-    ComponentsCustomFiltersComponent,
     ComponentsFiltersNg1Component,
     ComponentsDynamicFiltersNg1Component,
     ComponentsIndicesNg1Component,
@@ -65,7 +49,6 @@ const SECTIONS = [
     ComponentsPreviewPaneNg1Component,
     ComponentsPreviewPaneWindowNg1Component,
     ComponentsReorderableTableNg1Component,
-    ComponentsReorderableTableComponent,
     ComponentsMultipleSelectActionsNg1Component,
     ComponentsTraditionalMultipleSelectActionsNg1Component,
     ComponentsMultipleSelectionRowNg1Component,
@@ -75,15 +58,7 @@ const SECTIONS = [
     ComponentsMultipleColumnSortingNg1Component,
     ComponentsColumnVisibilityNg1Component,
     ComponentsCustomResponsiveTableNg1Component,
-    SampleFilterCustomComponent,
-    ComponentsLayoutSwitchingComponent,
-    ComponentsHoverActionsComponent,
-    ComponentsFixedHeaderTableComponent,
     ComponentsFixedHeaderTableNg1Component,
-    ComponentsSelectionComponent,
-    ComponentsSortingComponent,
-    ComponentsColumnResizingComponent,
-    ComponentsColumnPickerComponent
 ];
 
 const ROUTES = [

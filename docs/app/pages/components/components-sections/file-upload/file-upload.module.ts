@@ -9,13 +9,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsFileUploadNg1Component } from './file-upload-ng1/file-upload-ng1.component';
-import { ComponentsFileUploadComponent } from './file-upload/file-upload.component';
-
 
 
 const SECTIONS = [
     ComponentsFileUploadNg1Component,
-    ComponentsFileUploadComponent
 ];
 
 const ROUTES = [

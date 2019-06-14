@@ -7,12 +7,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ChartsLiveChartNg1Component } from './live-chart-ng1/live-chart-ng1.component';
-import { ChartsLiveChartComponent } from './live-chart/live-chart.component';
 
 
 const SECTIONS = [
     ChartsLiveChartNg1Component,
-    ChartsLiveChartComponent
 ];
 
 const ROUTES = [

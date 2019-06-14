@@ -11,17 +11,11 @@ import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsCustomScrollbarNg1Component } from './custom-scrollbar-ng1/custom-scrollbar-ng1.component';
 import { ComponentsInfiniteScrollLoadMoreNg1Component } from './infinite-scroll-load-more-ng1/infinite-scroll-load-more-ng1.component';
 import { ComponentsInfiniteScrollNg1Component } from './infinite-scroll-ng1/infinite-scroll-ng1.component';
-import { ComponentsInfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
-import { ComponentsVirtualForComponent } from './virtual-for/virtual-for.component';
-import { ComponentsVirtualScrollComponent } from './virtual-scroll/virtual-scroll.component';
 
 const SECTIONS = [
     ComponentsCustomScrollbarNg1Component,
-    ComponentsInfiniteScrollComponent,
     ComponentsInfiniteScrollNg1Component,
     ComponentsInfiniteScrollLoadMoreNg1Component,
-    ComponentsVirtualScrollComponent,
-    ComponentsVirtualForComponent
 ];
 
 const ROUTES = [

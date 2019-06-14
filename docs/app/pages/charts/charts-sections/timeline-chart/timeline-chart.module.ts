@@ -7,11 +7,9 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ChartsTimelineChartNg1Component } from './timeline-chart-ng1/timeline-chart-ng1.component';
-import { ChartsTimelineChartComponent } from './timeline-chart/timeline-chart.component';
 
 const SECTIONS = [
     ChartsTimelineChartNg1Component,
-    ChartsTimelineChartComponent
 ];
 
 const ROUTES = [

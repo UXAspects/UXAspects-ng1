@@ -8,9 +8,7 @@ import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ComponentsOverflowTooltipNg1Component } from './overflow-tooltip-ng1/overflow-tooltip-ng1.component';
 import { ComponentsSingleLineOverflowTooltipNg1Component } from './single-line-overflow-tooltip-ng1/single-line-overflow-tooltip-ng1.component';
 import { ComponentsStaticTooltipNg1Component } from './static-tooltip-ng1/static-tooltip-ng1.component';
-import { ComponentsStaticTooltipComponent } from './static-tooltip/static-tooltip.component';
 import { ComponentsTooltipsNg1Component } from './tooltips-ng1/tooltips-ng1.component';
-import { ComponentsTooltipsComponent } from './tooltips/tooltips.component';
 
 
 const SECTIONS = [
@@ -18,8 +16,6 @@ const SECTIONS = [
     ComponentsOverflowTooltipNg1Component,
     ComponentsSingleLineOverflowTooltipNg1Component,
     ComponentsStaticTooltipNg1Component,
-    ComponentsStaticTooltipComponent,
-    ComponentsTooltipsComponent
 ];
 
 const ROUTES = [

@@ -6,12 +6,10 @@ import { DocumentationCategoryComponent } from '../../../../components/documenta
 import { DocumentationPage, ResolverService } from '../../../../services/resolver/resolver.service';
 import { WrappersModule } from '../../../../wrappers/wrappers.module';
 import { ChartsPartitionMapNg1Component } from './partition-map-ng1/partition-map-ng1.component';
-import { ChartsPartitionMapComponent } from './partition-map/partition-map.component';
 
 
 const SECTIONS = [
     ChartsPartitionMapNg1Component,
-    ChartsPartitionMapComponent
 ];
 
 const ROUTES = [
