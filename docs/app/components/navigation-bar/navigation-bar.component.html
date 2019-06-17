@@ -1,3 +1,9 @@
+<ux-alert [class.dismissed]="!showAlert" type="warning" [dismissible]="true" (dismiss)="showAlert = false">
+    <div class="navigation-bar-alert">
+        <span class="alert-icon hpe-icon hpe-alert-filled"></span> This site refers to the legacy AngularJS version of UX Aspects. For the Angular version, see <a href="https://uxaspects.github.io/UXAspects/">uxaspects.github.io/UXAspects</a>.
+    </div>
+</ux-alert>
+
 <div class="container uxd-page-container">
 
     <img alt="UX Aspects Logo" [src]="brand.logo" class="navigation-bar-logo">

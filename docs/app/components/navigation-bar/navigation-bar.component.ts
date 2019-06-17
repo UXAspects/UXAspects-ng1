@@ -14,6 +14,7 @@ export class NavigationBarComponent {
     links: ILink[] = this.navigation.links;
     social: ILink[] = this.navigation.social;
     expanded: boolean = false;
+    showAlert = true;
 
     constructor(private _appConfig: AppConfiguration) { }
 }

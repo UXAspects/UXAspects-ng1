@@ -1,9 +1,0 @@
-import { CheckboxModule } from '@ux-aspects/ux-aspects';
-
-@NgModule({
-    imports: [
-        CheckboxModule,
-        // ...
-    ]
-})
-export class AppModule() {}

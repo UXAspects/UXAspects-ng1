@@ -7,10 +7,10 @@ import { ISection } from '../../interfaces/ISection';
 import { AppConfiguration } from '../app-configuration/app-configuration.service';
 
 
-const NAVIGATION_TOP_OFFSET = 50;
+const NAVIGATION_TOP_OFFSET = 75;
 
 // Slight offset for Firefox when checking which section is active
-const NAVIGATION_ACTIVE_OFFSET = 51;
+const NAVIGATION_ACTIVE_OFFSET = 76;
 
 @Injectable({
     providedIn: 'root'

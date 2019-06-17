@@ -1,6 +1,6 @@
 {
     "brand": {
-        "title": "UX Aspects",
+        "title": "UX Aspects (AngularJS)",
         "logo": "assets/img/UX-graphic.png",
         "link": "/"
     },
@@ -8,10 +8,6 @@
         {
             "title": "Overview",
             "link": "/overview"
-        },
-        {
-            "title": "Features",
-            "link": "/features"
         },
         {
             "title": "Getting Started",
@@ -37,12 +33,7 @@
     "social": [
         {
             "title": "Team",
-            "link": "/team",
-            "indicator": true
-        },
-        {
-            "title": "Blog",
-            "link": "/blog"
+            "link": "/team"
         }
     ]
 }
