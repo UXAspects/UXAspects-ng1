@@ -15,13 +15,13 @@ module.exports = {
         expand: true
     },
     css: {
-        cwd: join(cwd(), 'dist', 'styles'),
+        cwd: join(cwd(), 'dist', 'library', 'styles'),
         src: '**',
         dest: join(cwd(), 'dist', 'docs', 'assets', 'css'),
         expand: true
     },
     ng1: {
-        cwd: join(cwd(), 'dist', 'ng1'),
+        cwd: join(cwd(), 'dist', 'library', 'ng1'),
         src: '**',
         dest: join(cwd(), 'dist', 'docs', 'assets', 'ng1'),
         expand: true
