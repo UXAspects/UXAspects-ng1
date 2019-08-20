@@ -1,8 +1,8 @@
-UX Aspects (AngularJS) 2.0.0 beta 3 is now available! Check out the documentation at [uxaspects.github.io/UXAspects-ng1](https://uxaspects.github.io/UXAspects-ng1).
+UX Aspects (AngularJS) 2.0.0 beta 4 is now available! Check out the documentation at [uxaspects.github.io/UXAspects-ng1](https://uxaspects.github.io/UXAspects-ng1).
 
 #### Installation
 ````bash
-npm install @ux-aspects/ux-aspects-ng1@2.0.0-beta.3
+npm install @ux-aspects/ux-aspects-ng1@2.0.0-beta.4
 ````
 
 #### Breaking Changes (from UX Aspects 1.x)
