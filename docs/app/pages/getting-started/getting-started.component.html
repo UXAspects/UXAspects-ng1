@@ -69,6 +69,37 @@
             </ul>
         </li>
 
+        <li class="m-b">
+            <p> UX Aspects AngularJS components can be consumed in an existing application by
+                creating an Nx workspace and using the schematics and converting it to a hybrid application.
+            </p>
+
+            <ol>
+                <li>
+                    Create a new Nx workspace with a single Angular application.
+                </li>
+                <code>npx create-nx-workspace@latest schematics-test</code>
+                <li>
+                    Move into the project directory.
+                </li>
+                <code>cd schematics-test</code>
+                <li>
+                    Install the schematics package
+                </li>
+                <code>npm install --registry
+                    https://svsartifactory.swinfra.net/artifactory/api/npm/company-central-npm/</code>
+                <code>npm install --save-dev @micro-focus/ux-aspects-schematics</code>
+                <li>
+                    Deploy UX Aspects into your Angular application.
+                </li>
+                <code>ng add @micro-focus/ux-aspects-schematics</code>
+                <li>
+                    Configure for AngularJS.
+                </li>
+                <code>@micro-focus/ux-aspects-schematics:angularjs-hybrid</code>
+            </ol>
+        </li>
+
         <li>
             <p>
                 Otherwise, the component should be upgraded using Angular's
