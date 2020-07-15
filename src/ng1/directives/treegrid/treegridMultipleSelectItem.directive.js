@@ -98,7 +98,7 @@ export function treegridMultipleSelectItem() {
                             return false;
                         });
 
-                        scope.$on('destroy', () => {
+                        scope.$on('$destroy', () => {
                             element.off('click.multiSelect');
                             element.off('keydown.multiSelect');
                             element.off('treegrid-navigation-focused');
