@@ -1,0 +1,16 @@
+export * from '@schematics/angular/utility/ast-utils';
+export * from '@schematics/angular/utility/change';
+export * from '@schematics/angular/utility/config';
+export * from '@schematics/angular/utility/dependencies';
+export * from '@schematics/angular/utility/find-module';
+export * from '@schematics/angular/utility/json-utils';
+export * from '@schematics/angular/utility/latest-versions';
+export * from '@schematics/angular/utility/lint-fix';
+export * from '@schematics/angular/utility/ng-ast-utils';
+export * from '@schematics/angular/utility/parse-name';
+export * from '@schematics/angular/utility/paths';
+export * from '@schematics/angular/utility/project-targets';
+export * from '@schematics/angular/utility/test';
+export * from '@schematics/angular/utility/validation';
+export { buildDefaultPath, createDefaultPath } from '@schematics/angular/utility/workspace';
+export * from '@schematics/angular/utility/workspace-models';

@@ -1,0 +1,21 @@
+{
+    "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+        "ng-add": {
+            "description": "Add UX Aspects NG1 to the application.",
+            "factory": "./ng-add/index",
+            "schema": "./ng-add/schema.json",
+            "aliases": [
+                "install"
+            ]
+        },
+        "angularjs-hybrid": {
+            "description": "Configure the application as hybrid Angular/AngularJS and import the UX Aspects AngularJS library.",
+            "factory": "./ng-generate/angularjs-hybrid/index",
+            "schema": "./ng-generate/angularjs-hybrid/schema.json",
+            "aliases": [
+                "ux-aspects-angularjs-hybrid"
+            ]
+        }
+    }
+}
