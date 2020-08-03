@@ -30,6 +30,7 @@
     "**/snippets/*.ts",
     "e2e",
     "test",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "schematics"
   ]
 }

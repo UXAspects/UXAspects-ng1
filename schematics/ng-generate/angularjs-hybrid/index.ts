@@ -56,7 +56,7 @@ function addTemplateFiles(options: Schema): Rule {
     };
 }
 
-function addScripts(options: Schema) {
+function addScripts(options: Schema): Rule {
     return (tree: Tree) => {
         const workspace = getWorkspace(tree);
         const project = getProjectFromWorkspace(workspace, options.project);
@@ -82,7 +82,7 @@ function addScripts(options: Schema) {
     };
 }
 
-function addStyles(options: Schema) {
+function addStyles(options: Schema): Rule {
     return (tree: Tree, _context: SchematicContext) => {
         const workspace = getWorkspace(tree);
         const project = getProjectFromWorkspace(workspace, options.project);
@@ -177,7 +177,7 @@ function hasRouter(tree: Tree, modulePath: string, className: string): boolean {
     // Find the `imports` property
     const metadataNodes = findNodes(decorator, ts.SyntaxKind.PropertyAssignment, undefined, true);
     const imports = metadataNodes.find(
-        metadataNode =>
+        (metadataNode: ts.Node) =>
             ts.isPropertyAssignment(metadataNode) && metadataNode.name && metadataNode.name.getText() === 'imports'
     ) as ts.PropertyAssignment;
     if (!imports || !ts.isArrayLiteralExpression(imports.initializer)) {
@@ -185,7 +185,7 @@ function hasRouter(tree: Tree, modulePath: string, className: string): boolean {
     }
 
     // Look for an import beginning with "RouterModule", e.g. "RouterModule.forRoot(...)"
-    return imports.initializer.elements.findIndex(expr => expr.getText().startsWith('RouterModule')) !== -1;
+    return imports.initializer.elements.findIndex((expr: ts.Expression) => expr.getText().startsWith('RouterModule')) !== -1;
 }
 
 /** Add injection to the constructor, creating the constructor if required. */
@@ -195,11 +195,11 @@ function addInjection(source: ts.SourceFile, className: string, paramName: strin
     const klass = getClassDeclaration(source, className);
 
     const constructor = <ts.ConstructorDeclaration>(
-        klass.members.find(member => member.kind === ts.SyntaxKind.Constructor)
+        klass.members.find((member: ts.ClassElement) => member.kind === ts.SyntaxKind.Constructor)
     );
 
     if (constructor) {
-        if (constructor.parameters.find(param => param.type && param.type.getText() === paramType)) {
+        if (constructor.parameters.find(param => param.type !== undefined && param.type.getText() === paramType)) {
             throw new Error(`Injection of ${ paramType } already present in ${ className }`);
         }
 
@@ -226,7 +226,7 @@ function addToMethod(source: ts.SourceFile, className: string, methodName: strin
     const klass = getClassDeclaration(source, className);
 
     const method = <ts.MethodDeclaration>(
-        klass.members.find(member => ts.isMethodDeclaration(member) && member.name && member.name.getText() === methodName)
+        klass.members.find((member: ts.ClassElement) => ts.isMethodDeclaration(member) && member.name && member.name.getText() === methodName)
     );
 
     if (method) {
@@ -260,7 +260,7 @@ function addImplements(
     const klass = getClassDeclaration(source, className);
 
     const implementsClause = klass.heritageClauses
-        ? klass.heritageClauses.find(heritageClause => heritageClause.token === ts.SyntaxKind.ImplementsKeyword)
+        ? klass.heritageClauses.find((heritageClause: ts.HeritageClause) => heritageClause.token === ts.SyntaxKind.ImplementsKeyword)
         : null;
     if (implementsClause) {
         if (!findNode(implementsClause, ts.SyntaxKind.Identifier, interfaceName)) {
@@ -310,7 +310,7 @@ function getClassDeclaration(source: ts.SourceFile, className: string): ts.Class
     const allClasses = findNodes(source, ts.SyntaxKind.ClassDeclaration);
 
     const classDecl = <ts.ClassDeclaration>(
-        allClasses.find(node => ts.isClassDeclaration(node) && node.name && node.name.text === className)
+        allClasses.find((node: ts.Node) => ts.isClassDeclaration(node) && node.name !== undefined && node.name.text === className)
     );
     if (!classDecl) {
         throw new Error(`Could not find class named ${ className }`);
