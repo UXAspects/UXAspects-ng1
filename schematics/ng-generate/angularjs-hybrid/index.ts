@@ -5,7 +5,7 @@ import { dirname } from 'path';
 import * as ts from 'typescript';
 import { addDependency } from '../../ng-add/package-config';
 import { addSymbolToNgModuleMetadata, Change, findNode, findNodes, getAppModulePath, getDecoratorMetadata, getMetadataField, getWorkspace, InsertChange, insertImport, latestVersions, RemoveChange, ReplaceChange, updateWorkspace } from '../../utility/index';
-import { addScriptImports, addStyleImportsAfter } from '../../utility/angular';
+import { addScriptImports, addStyleImportsAfter, replaceImport } from '../../utility/angular';
 import { Schema } from './schema';
 
 const UX_ASPECTS_NG1_VERSION = '^2.0.0';
@@ -92,6 +92,14 @@ function addStyles(options: Schema): Rule {
             'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css',
             'node_modules/@ux-aspects/ux-aspects-ng1/styles/ux-aspects.css'
         );
+
+        // use the UX Aspects no legacy styles instead of the default stylesheet
+        replaceImport(
+            project,
+            'build',
+            'styles',
+            'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css',
+            'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects-no-legacy.css');
 
         return updateWorkspace(workspace);
     };

@@ -1,7 +1,9 @@
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
-import { getFileContent } from '../../utility';
+import { getFileContent, getWorkspace, updateWorkspace } from '../../utility';
 import { createTestApp } from '../../utility/test';
 import { Schema } from './schema';
+import { getProjectFromWorkspace } from '@angular/cdk/schematics';
+import { addStyleImports, addStyleImportsAfter } from '../../utility/angular';
 
 describe('ux-aspects-angularjs-hybrid schematic', () => {
   let runner: SchematicTestRunner;
@@ -138,6 +140,23 @@ export class AppModule implements OnInit {
     const moduleContent = getFileContent(tree, '/projects/test-app/src/app/app.module.ts');
     expect(moduleContent).toContain(`import { NgModule, OnInit, DoBootstrap } from '@angular/core';`);
     expect(moduleContent).toContain(`export class AppModule implements OnInit, DoBootstrap`);
+  });
+
+  it('should replace the UX Aspects stylesheet with the no-legacy stylesheet', async () => {
+    const app = await createTestApp(runner);
+
+    // insert the UX Aspects stylesheet into the angular.json file styles array
+    const workspace = getWorkspace(app);
+    const project = getProjectFromWorkspace(workspace, 'test-app');
+    addStyleImports(project, 'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css');
+    await runner.callRule(updateWorkspace(workspace), app).toPromise();
+
+    const tree = await runner.runSchematicAsync('angularjs-hybrid', baseOptions, app).toPromise();
+
+    const angularConfig = JSON.parse(getFileContent(tree, '/angular.json'));
+    const styles = angularConfig.projects['test-app'].architect.build.options.styles;
+    expect(styles).not.toContain('node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css');
+    expect(styles).toContain('node_modules/@ux-aspects/ux-aspects/styles/ux-aspects-no-legacy.css');
   });
 });
 

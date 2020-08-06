@@ -1,5 +1,6 @@
 import { WorkspaceProject } from '@angular-devkit/core/src/experimental/workspace';
 import { getProjectTargetOptions } from '@angular/cdk/schematics';
+import { add } from 'ngx-bootstrap/chronos';
 
 export function addScriptImports(project: WorkspaceProject, ...paths: string[]): void {
   addImports(project, 'build', 'scripts', paths, null, true);
@@ -36,4 +37,27 @@ function addImports(
 
     targetOptions[importType].splice(index + 1, 0, ...paths);
   }
+}
+
+export function replaceImport(
+    project: WorkspaceProject,
+    buildTarget: string,
+    importType: 'scripts' | 'styles',
+    oldPath: string,
+    newPath: string): void {
+
+    const targetOptions = getProjectTargetOptions(project, buildTarget);
+    const imports = targetOptions[importType] as string[];
+
+    if (!imports) {
+        return;
+    }
+
+    const pathIndex = targetOptions[importType].indexOf(oldPath);
+
+    if (pathIndex === -1) {
+        return;
+    }
+
+    targetOptions[importType][pathIndex] = newPath;
 }

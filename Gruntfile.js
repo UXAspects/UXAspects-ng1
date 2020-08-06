@@ -36,7 +36,8 @@ module.exports = function (grunt) {
         'licenses',
         'build:documentation',
         'minify',
-        'assets'
+        'assets',
+        'schematics',
     ]);
 
     // package: compress the dist output for all targets into the `target` directory.
