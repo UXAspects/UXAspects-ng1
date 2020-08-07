@@ -1,6 +1,5 @@
 import { WorkspaceProject } from '@angular-devkit/core/src/experimental/workspace';
 import { getProjectTargetOptions } from '@angular/cdk/schematics';
-import { add } from 'ngx-bootstrap/chronos';
 
 export function addScriptImports(project: WorkspaceProject, ...paths: string[]): void {
   addImports(project, 'build', 'scripts', paths, null, true);
