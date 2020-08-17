@@ -184,7 +184,7 @@ function verifyTree(tree: UnitTestTree, hasRouter: boolean = false): void {
     expect(scripts).toContain('node_modules/@ux-aspects/ux-aspects-ng1/ng1/ux-aspects-ng1.js');
 
     const styles = angularConfig.projects['test-app'].architect.build.options.styles;
-    expect(styles).toContain('node_modules/@ux-aspects/ux-aspects-ng1/styles/ux-aspects-no-legacy.css');
+    expect(styles).toContain('node_modules/@ux-aspects/ux-aspects-ng1/styles/ux-aspects.css');
 
     const setupContent = getFileContent(tree, '/projects/test-app/src/app/setup-hybrid.ts');
     (hasRouter ? expect(setupContent) : expect(setupContent).not).toContain(`injector.get(Router).initialNavigation();`);

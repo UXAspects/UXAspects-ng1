@@ -98,7 +98,7 @@ function addStyles(options: Schema): Rule {
         addStyleImportsAfter(
             project,
             'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css',
-            'node_modules/@ux-aspects/ux-aspects-ng1/styles/ux-aspects-no-legacy.css'
+            'node_modules/@ux-aspects/ux-aspects-ng1/styles/ux-aspects.css'
         );
 
         return updateWorkspace(workspace);
