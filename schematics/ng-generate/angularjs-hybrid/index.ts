@@ -4,8 +4,8 @@ import { addModuleImportToModule, getProjectFromWorkspace, getProjectMainFile } 
 import { dirname } from 'path';
 import * as ts from 'typescript';
 import { addDependency } from '../../ng-add/package-config';
-import { addSymbolToNgModuleMetadata, Change, findNode, findNodes, getAppModulePath, getDecoratorMetadata, getMetadataField, getWorkspace, InsertChange, insertImport, latestVersions, RemoveChange, ReplaceChange, updateWorkspace } from '../../utility/index';
 import { addScriptImports, addStyleImportsAfter, replaceImport } from '../../utility/angular';
+import { addSymbolToNgModuleMetadata, Change, findNode, findNodes, getAppModulePath, getDecoratorMetadata, getMetadataField, getWorkspace, InsertChange, insertImport, latestVersions, RemoveChange, ReplaceChange, updateWorkspace } from '../../utility/index';
 import { Schema } from './schema';
 
 const UX_ASPECTS_NG1_VERSION = '^2.0.0';
@@ -87,12 +87,6 @@ function addStyles(options: Schema): Rule {
         const workspace = getWorkspace(tree);
         const project = getProjectFromWorkspace(workspace, options.project);
 
-        addStyleImportsAfter(
-            project,
-            'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css',
-            'node_modules/@ux-aspects/ux-aspects-ng1/styles/ux-aspects.css'
-        );
-
         // use the UX Aspects no legacy styles instead of the default stylesheet
         replaceImport(
             project,
@@ -100,6 +94,12 @@ function addStyles(options: Schema): Rule {
             'styles',
             'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css',
             'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects-no-legacy.css');
+
+        addStyleImportsAfter(
+            project,
+            'node_modules/@ux-aspects/ux-aspects/styles/ux-aspects.css',
+            'node_modules/@ux-aspects/ux-aspects-ng1/styles/ux-aspects-no-legacy.css'
+        );
 
         return updateWorkspace(workspace);
     };
@@ -246,7 +246,7 @@ function addToMethod(source: ts.SourceFile, className: string, methodName: strin
             source.fileName,
             klass.members.end,
             `
-  ${ methodName }() {
+  ${ methodName }(): void {
     ${ body.trim() }
   }
 `
