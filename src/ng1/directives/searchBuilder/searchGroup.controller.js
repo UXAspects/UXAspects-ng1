@@ -35,8 +35,8 @@ export default function SearchGroupCtrl($scope) {
 
                 //create new components
                 for (var i = 0; i < fields.length; i++) {
-                    var component = vm.findComponentByName(fields[i].component, fields[i].value);
-                    vm.createComponent(fields[i].id, component);
+                    var component = vm.findComponentByName(fields[i].component);
+                    vm.createComponent(fields[i].id, component, fields[i].value);
                 }
 
                 //hide placeholder now that promise has been resolved
@@ -54,8 +54,8 @@ export default function SearchGroupCtrl($scope) {
 
             //create new components
             for (var i = 0; i < newFields.length; i++) {
-                var component = vm.findComponentByName(newFields[i].component, newFields[i].value);
-                vm.createComponent(newFields[i].id, component);
+                var component = vm.findComponentByName(newFields[i].component);
+                vm.createComponent(newFields[i].id, component, newFields[i].value);
             }
         }
     };
