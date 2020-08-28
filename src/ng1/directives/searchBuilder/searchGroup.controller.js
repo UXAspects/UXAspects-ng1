@@ -10,7 +10,6 @@ export default function SearchGroupCtrl($scope) {
     vm.readOnly = $scope.readOnly;
 
     vm.addNewField = function(index) {
-
         const targetFunction = vm.getAddFields()[index];
 
         //call the user function specified to add a field

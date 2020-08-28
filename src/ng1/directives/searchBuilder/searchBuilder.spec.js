@@ -17,7 +17,10 @@ describe('Search Builder directive', function() {
         var textComponent = '<search-component><label class="form-label">Text</label><input placeholder="Enter Text" class="form-control" ng-model="model" /></search-component>';
         $templateCache.put('textComponent.html', textComponent);
 
-        var searchGroup = "<div class=\"search-group\">";
+        var hasAttachmentComponent = '<search-component><label class="form-label">Has Attachments?</label><input placeholder="Enter Text" class="form-control" ng-model="model" /></search-component>';
+        $templateCache.put('hasAttachmentsComponent.html', hasAttachmentComponent);
+
+        var searchGroup = "<div class=\"search-group\" ng-class=\"{'read-only': sg.readOnly}\">";
         searchGroup += "";
         searchGroup += "  <p class=\"search-group-title\" ng-bind=\"groupTitle\"><\/p>";
         searchGroup += "";
@@ -36,10 +39,12 @@ describe('Search Builder directive', function() {
         searchGroup += "        <div class=\"form-control\"><\/div>";
         searchGroup += "      <\/div>";
         searchGroup += "    <\/div>";
-        searchGroup += "    <div class=\"add-field\" ng-class=\"{ 'limit-reached' : sg.maxFields && (sg.components.length >= maxFields) }\">";
-        searchGroup += "      <div class=\"button-container\" ng-click=\"sg.addNewField()\">";
-        searchGroup += "        <div class=\"add-button\"><span class=\"hpe-icon hpe-add\"><\/span><\/div>";
-        searchGroup += "        <span class=\"add-text\" single-line-overflow-tooltip ng-bind=\"buttonText\"><\/span>";
+        searchGroup += "    <div class=\"add-field-list\">";
+        searchGroup += "      <div class=\"add-field\" ng-repeat=\"button in sg.getAddFields()\" ng-class=\"{ 'limit-reached' : sg.maxFields && (sg.components.length >= maxFields) }\">";
+        searchGroup += "        <div class=\"button-container\" ng-click=\"sg.addNewField($index)\">";
+        searchGroup += "          <div class=\"add-button\"><span class=\"hpe-icon hpe-add\"><\/span><\/div>";
+        searchGroup += "          <span class=\"add-text\" single-line-overflow-tooltip ng-bind=\"sg.getButtonText($index)\"><\/span>";
+        searchGroup += "        <\/div>";
         searchGroup += "      <\/div>";
         searchGroup += "    <\/div>";
         searchGroup += "  <\/div>";
@@ -57,132 +62,145 @@ describe('Search Builder directive', function() {
         searchComponent += "<\/div>";
 
         $templateCache.put('searchBuilder/templates/searchComponent.html', searchComponent);
+
+        this.scope = createElement({});
     });
 
     it("should have the correct search groups", function() {
-        createElement({});
-
         var searchGroups = element.find('.search-group');
 
-        expect(searchGroups.length).toBe(2);
+        expect(searchGroups.length).toBe(3);
     });
 
     it("should have search groups with the correct titles", function() {
-        createElement({});
-
         var titles = element.find('.search-group-title');
 
-        expect(titles.length).toBe(2);
+        expect(titles.length).toBe(3);
         expect(titles.get(0).innerHTML).toBe('Text Keywords');
         expect(titles.get(1).innerHTML).toBe('ANY of the following');
+        expect(titles.get(2).innerHTML).toBe('ALL of the following');
     });
 
     it("should have search groups with the correct button text", function() {
-        createElement({});
-
         var buttonText = element.find('.add-text');
 
-        expect(buttonText.length).toBe(2);
+        expect(buttonText.length).toBe(3);
         expect(buttonText.get(0).innerHTML).toBe('Add text keywords');
         expect(buttonText.get(1).innerHTML).toBe('Add a field');
+        expect(buttonText.get(2).innerHTML).toBe('Add a field');
     });
 
     it("should have search groups with the correct operator", function() {
-        createElement({});
-
         var operators = element.find('.operator-label');
 
-        expect(operators.length).toBe(2);
+        expect(operators.length).toBe(3);
         expect(operators.get(0).innerHTML.trim()).toBe('or');
-        expect(operators.get(1).innerHTML.trim()).toBe('and');
+        expect(operators.get(1).innerHTML.trim()).toBe('or');
+        expect(operators.get(2).innerHTML.trim()).toBe('and');
     });
 
     it("should have search groups with no components", function() {
-        createElement({});
-
         var componentLists = element.find('.field-collection');
 
-        expect(componentLists.length).toBe(2);
+        expect(componentLists.length).toBe(3);
         expect(componentLists.get(0).children.length).toBe(0);
         expect(componentLists.get(1).children.length).toBe(0);
+        expect(componentLists.get(2).children.length).toBe(0);
     });
 
     it("should have the ability to add a simple component", function() {
-        var scope = createElement({});
-
         var button = element.find('.button-container');
 
-        expect(button.length).toBe(2);
+        expect(button.length).toBe(3);
 
         angular.element(button.get(0)).click();
 
-        scope.$digest();
+        this.scope.$digest();
 
         var componentLists = element.find('.field-collection');
 
-        expect(componentLists.length).toBe(2);
+        expect(componentLists.length).toBe(3);
         expect(componentLists.get(0).children.length).toBe(1);
         expect(componentLists.get(1).children.length).toBe(0);
+        expect(componentLists.get(2).children.length).toBe(0);
     });
 
     it("should show placeholder when waiting on resolution", function() {
-        var scope = createElement({});
-
         var button = element.find('.button-container');
 
-        expect(button.length).toBe(2);
+        expect(button.length).toBe(3);
 
         angular.element(button.get(1)).click();
 
-        scope.$digest();
+        this.scope.$digest();
 
         var placeholders = element.find('.placeholder-field');
-        expect(placeholders.length).toBe(2);
+        expect(placeholders.length).toBe(3);
 
         expect(angular.element(placeholders.get(0)).hasClass('ng-hide')).toBe(true);
         expect(angular.element(placeholders.get(1)).hasClass('ng-hide')).toBe(false);
+        expect(angular.element(placeholders.get(2)).hasClass('ng-hide')).toBe(true);
     });
 
     it("should hide placeholder after promise resolved", function(done) {
-      var scope = createElement({});
-
       var button = element.find('.button-container');
 
-      expect(button.length).toBe(2);
+      expect(button.length).toBe(3);
 
       angular.element(button.get(1)).click();
 
-      scope.$digest();
+      this.scope.$digest();
 
       var placeholders = element.find('.placeholder-field');
-      expect(placeholders.length).toBe(2);
+      expect(placeholders.length).toBe(3);
 
       expect(angular.element(placeholders.get(0)).hasClass('ng-hide')).toBe(true);
       expect(angular.element(placeholders.get(1)).hasClass('ng-hide')).toBe(false);
+      expect(angular.element(placeholders.get(2)).hasClass('ng-hide')).toBe(true);
 
+      const that = this;
       setTimeout(function() {
-        scope.$digest();
+        that.scope.$digest();
         expect(angular.element(placeholders.get(0)).hasClass('ng-hide')).toBe(true);
         expect(angular.element(placeholders.get(1)).hasClass('ng-hide')).toBe(true);
+        expect(angular.element(placeholders.get(2)).hasClass('ng-hide')).toBe(true);
         done();
       }, 1100);
     });
 
-    it("should generate search query", function(done) {
-      var scope = createElement({});
-
+    it("should generate search query when adding a field without a default value", function(done) {
       var button = element.find('.button-container');
 
-      expect(button.length).toBe(2);
+      expect(button.length).toBe(3);
 
       angular.element(button.get(1)).click();
 
-      scope.$digest();
+      this.scope.$digest();
 
+      const that = this;
       setTimeout(function() {
-        scope.$digest();
+        that.scope.$digest();
 
-        expect(JSON.stringify(scope.searchQuery)).toBe('{"locations":{"text-promise":{"component":"text","value":null}}}');
+        expect(JSON.stringify(that.scope.searchQuery)).toBe('{"anyFields":{"text-promise":{"component":"text","value":null}}}');
+
+        done();
+      }, 1100);
+    });
+
+    it("should generate search query when adding a field with a default value", function(done) {
+      var button = element.find('.button-container');
+
+      expect(button.length).toBe(3);
+
+      angular.element(button.get(2)).click();
+
+      this.scope.$digest();
+
+      const that = this;
+      setTimeout(function() {
+        that.scope.$digest();
+
+        expect(JSON.stringify(that.scope.searchQuery)).toBe('{"allFields":{"has_attachments-0":{"component":"has_attachments","value":true}}}');
 
         done();
       }, 1100);
@@ -193,7 +211,8 @@ describe('Search Builder directive', function() {
     function createElement(searchQuery) {
         var html = '<search-builder search-query="searchQuery" components="components">';
         html += ' <search-group group-id="\'keywords\'" group-title="\'Text Keywords\'" operator="\'or\'" button-text="\'Add text keywords\'" add-field="addKeywordField"></search-group>';
-        html += ' <search-group group-id="\'locations\'" group-title="\'ANY of the following\'" operator="\'and\'" button-text="\'Add a field\'" add-field="addCustomField"></search-group>';
+        html += ' <search-group group-id="\'anyFields\'" group-title="\'ANY of the following\'" operator="\'or\'" button-text="\'Add a field\'" add-field="addCustomField"></search-group>';
+        html += ' <search-group group-id="\'allFields\'" group-title="\'ALL of the following\'" operator="\'and\'" button-text="\'Add a field\'" add-field="addEnumerationField"></search-group>';
         html += '</search-builder>';
 
         var $scope = $rootScope.$new();
@@ -202,6 +221,10 @@ describe('Search Builder directive', function() {
         $scope.components = [{
             name: 'text',
             templateUrl: 'textComponent.html'
+        },
+        {
+            name: 'has_attachments',
+            templateUrl: 'hasAttachmentsComponent.html'
         }];
 
         $scope.addKeywordField = function() {
@@ -223,6 +246,14 @@ describe('Search Builder directive', function() {
 
             return defer.promise;
         };
+
+        $scope.addEnumerationField = function () {
+            return {
+                id: 'has_attachments-0',
+                component: 'has_attachments',
+                value: true
+            };
+        }
 
         element = $compile(html)($scope);
 
