@@ -54,7 +54,7 @@ export default function SearchGroupCtrl($scope) {
 
             //create new components
             for (var i = 0; i < newFields.length; i++) {
-                var component = vm.findComponentByName(newFields[i].component, fields[i].value);
+                var component = vm.findComponentByName(newFields[i].component, newFields[i].value);
                 vm.createComponent(newFields[i].id, component);
             }
         }
