@@ -13,5 +13,11 @@ module.exports = {
             cwd: join(cwd(), 'dist', 'library')
         },
         exec: 'npm pack --quiet'
+    },
+    schematics_build: {
+        exec: 'npm run build:schematics'
+    },
+    schematics_copy: {
+        exec: 'npm run copy:schematics'
     }
 };

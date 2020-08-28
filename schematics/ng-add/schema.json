@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "ux-aspects-ng1-schematic-ng-add",
+    "title": "UX Aspects NG1 ng-add schematic",
+    "type": "object",
+    "properties": {
+        "project": {
+            "type": "string",
+            "description": "The name of the project.",
+            "$default": {
+                "$source": "projectName"
+            }
+        }
+    },
+    "required": [],
+    "additionalProperties": false
+}

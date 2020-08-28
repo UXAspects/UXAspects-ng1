@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "ux-aspects-generate-angularjs-hybrid",
+  "title": "UX Aspects AngularJS Hybrid Application",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+import { Injector } from '@angular/core';
+<% if (router) { %>
+import { Router } from '@angular/router';
+<% } %>
+import { downgradeComponent, setAngularJSGlobal } from '@angular/upgrade/static';
+import { AppComponent } from './app.component';
+
+const angular = (window as any).angular;
+
+angular
+  .module('app', ['ux-aspects'])
+  .directive('appRoot', downgradeComponent({ component: AppComponent }));
+
+export function setupHybrid(injector: Injector): void {
+  setAngularJSGlobal(angular);
+<% if (router) { %>
+  angular.module('app').run(() => {
+    injector.get(Router).initialNavigation();
+  });
+<% } %>
+}

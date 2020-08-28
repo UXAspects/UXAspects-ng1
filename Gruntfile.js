@@ -1,7 +1,7 @@
 const path = require('path');
 const configLoader = require('load-grunt-config');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     require('time-grunt')(grunt);
 
@@ -36,7 +36,8 @@ module.exports = function(grunt) {
         'licenses',
         'build:documentation',
         'minify',
-        'assets'
+        'assets',
+        'schematics',
     ]);
 
     // package: compress the dist output for all targets into the `target` directory.
@@ -44,6 +45,9 @@ module.exports = function(grunt) {
 
     // build: build and package for all targets.
     grunt.registerTask('build', ['compile', 'package']);
+
+    // build: build and copy the schematics
+    grunt.registerTask('schematics', ['run:schematics_build', 'run:schematics_copy']);
 
     // build:library: build and package the library.
     grunt.registerTask('build:library', [
@@ -54,6 +58,7 @@ module.exports = function(grunt) {
         'styles',
         'minify',
         'assets:library',
+        'schematics',
         'licenses',
         'package:library'
     ]);
