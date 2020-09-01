@@ -75,7 +75,7 @@ export default function splitter($compile, $timeout) {
                             //Panel was previously hidden and needs to be shown
 
                             //If the last value was the default, then revert to that default
-                            if (panel._display === "") {
+                            if (panel._display === "" || panel._display === "none") {
                                 panel.style.removeProperty("display");
                             } else {
                                 //Otherwise maybe there was a deliberate value we should respect
@@ -284,7 +284,7 @@ export default function splitter($compile, $timeout) {
                         showGutter();
                         toggleButtonIcon(toggle);
                         expandSidePanel(mainPanel, sidePanel);
-                        
+
                         if (scope.onToggle) {
                             scope.onToggle.call(scope, true);
                         }
