@@ -146,7 +146,7 @@
     "marked": "^0.6.2",
     "mini-css-extract-plugin": "^0.4.4",
     "ng-cache-loader": "0.0.26",
-    "ng-packagr": "^4.0.0",
+    "ng-packagr": "^10.1.1",
     "null-loader": "0.1.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prismjs-loader": "0.0.4",
