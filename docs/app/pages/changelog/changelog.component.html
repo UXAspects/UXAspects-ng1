@@ -3,9 +3,47 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 m-t-lg">
-            
+
+            <ux-ebox>
+
+                <ux-ebox-header>
+                    <h3 class="changelog-title">UX Aspects (AngularJS) end of life</h3>
+                    <p class="changelog-date">December 31st 2021</p>
+                </ux-ebox-header>
+
+                <ux-ebox-content>
+                    <p>
+                        As AngularJS 1.x reaches end of life at the end of this year, we have now retired the AngularJS version
+                        of UX Aspects. The UX Aspects team will make no further releases of the AngularJS component library.
+                    </p>
+                    <br />
+
+                    <h4>What should I do if I need an AngularJS bug fix or feature?</h4>
+
+                    <p>Assuming you are unable to use the Angular components, the only option will be to clone the
+                        repository and make the change yourself. You will also need to take responsibility for the ITLS
+                        declaration of any future releases involving UX Aspects (AngularJS).
+                    </p>
+                    <br />
+
+                    <h4>How can I tell if a project is using the affected library?</h4>
+
+                    <ul>
+                        <li>
+                            <span>Run the following command: <code>npm ls @ux-aspects/ux-aspects-ng1</code></span>
+                        </li>
+                        <li>
+                            <span>If it shows <code>(empty)</code> then this product retirement does not affect your application.</span>
+                        </li>
+                    </ul>
+
+                </ux-ebox-content>
+
+            </ux-ebox>
+
+
             <ux-ebox *ngFor="let log of logs">
-                
+
                 <ux-ebox-header>
                     <h3 class="changelog-title">UX Aspects - {{ log.version }}</h3>
                     <p class="changelog-date">{{ log.date }}</p>
