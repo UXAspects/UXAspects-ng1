@@ -13,29 +13,25 @@
 
                 <ux-ebox-content>
                     <p>
-                        As AngularJS 1.x reaches end of life at the end of this year, we have now retired the AngularJS version
-                        of UX Aspects. The UX Aspects team will make no further releases of the AngularJS component library.
+                        Because <a href="https://blog.angular.io/discontinued-long-term-support-for-angularjs-cc066b82e65a">
+                        AngularJS 1.x has reached the end of its support window</a>, we have now retired the AngularJS
+                        version of UX Aspects. The UX Aspects team will make no further releases of the AngularJS component library.
                     </p>
-                    <br />
 
                     <h4>What should I do if I need an AngularJS bug fix or feature?</h4>
 
-                    <p>Assuming you are unable to use the Angular components, the only option will be to clone the
-                        repository and make the change yourself. You will also need to take responsibility for the ITLS
-                        declaration of any future releases involving UX Aspects (AngularJS).
+                    <p>
+                        The recommended approach is to use the <a href="https://uxaspects.github.io/UXAspects">UX Aspects Angular components</a> instead.
+                        If you are unable to migrate, the only option will be to clone the repository and make the
+                        change yourself. You will also need to take responsibility for the legal declaration of any
+                        future releases involving UX Aspects (AngularJS).
                     </p>
-                    <br />
 
                     <h4>How can I tell if a project is using the affected library?</h4>
 
-                    <ul>
-                        <li>
-                            <span>Run the following command: <code>npm ls @ux-aspects/ux-aspects-ng1</code></span>
-                        </li>
-                        <li>
-                            <span>If it shows <code>(empty)</code> then this product retirement does not affect your application.</span>
-                        </li>
-                    </ul>
+                    <p>Run the following command in the root of your project:</p>
+                    <pre>npm ls @ux-aspects/ux-aspects-ng1</pre>
+                    <p>If it shows <code>(empty)</code> then this product retirement does not affect your application.</p>
 
                 </ux-ebox-content>
 
